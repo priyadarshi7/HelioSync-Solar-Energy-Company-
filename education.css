@@ -1,0 +1,108 @@
+*{
+    border:0px;
+    margin:0px;
+}
+#logo{
+    background-image: url('Asset 1.png');
+    height: 80px;
+background-size: cover;
+width:80px;
+margin-left:25px;
+}
+#logo:hover{
+    background-color: #444444;
+    border-radius: 8px;
+}
+.header{
+    background-color: white;
+}
+body{
+    background-color: #474F7A;
+}
+.box1{
+    height:320px;
+    width:45%;
+background-color: aliceblue;
+margin-left: 20px;
+margin-top:40px;
+border-radius: 12px;
+display: flex;
+border-radius: 10px;
+}
+.boxes{
+    display: flex;
+    flex-wrap: wrap;
+}
+.gif{
+    height:100%;
+    width:50%;
+    background-image: url('glossary.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+#btn{
+    height:100%;
+    width:50%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color:#474F7A;
+    border-radius: 10px;
+}
+#btn2{
+    height:100%;
+    width:50%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color:#474F7A;
+    border-radius: 10px;
+}
+#btn3{
+    height:100%;
+    width:50%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color:#474F7A;
+    border-radius: 10px;
+}
+#btn4{
+    height:100%;
+    width:50%;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color:#474F7A;
+    border-radius: 10px;
+}
+.box2{
+    display: flex;
+    flex-wrap: wrap;
+}
+.gif2{
+    height:100%;
+    width:50%;
+    background-image: url('Case_Studies.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+
+.gif3{
+    height:100%;
+    width:50%;
+    background-image: url('FAQ.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}
+.gif4{
+    height:100%;
+    width:50%;
+    background-image: url('diy.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+}

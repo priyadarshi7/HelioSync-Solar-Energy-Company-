@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Services</title>
+    <style>
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(#0A4D68,#088395);
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            color: #333333;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .service {
+            background-color: #ffffff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            flex-basis: calc(50% - 20px);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+        }
+
+        .service h2 {
+            color: #009688;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .service:hover h2 {
+            color: #00796b;
+        }
+
+        .service p {
+            color: #666666;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .service:hover p {
+            color: #444444;
+        }
+
+        .service img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service:hover .service-overlay {
+            opacity: 1;
+        }
+
+        .service-overlay p {
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        #logo{
+            background-image: url('Asset 1.png');
+            height: 80px;
+    background-size: cover;
+    width:80px;
+    margin-left:25px;
+        }
+        #logo:hover{
+            background-color: #444444;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div id="logo">
+        </div>
+        <h1>Our Services</h1>
+    </div>
+
+    <div class="container">
+        <div class="service">
+            <img src="981-consultation.gif" alt="Solar Consultation and Design" >
+            <div class="service-overlay">
+                <p>Solar Consultation and Design</p>
+            </div>
+            <h2>Solar Consultation and Design</h2>
+            <p>Customized solar solutions tailored to your specific requirements. Site assessment and shading analysis for optimal design.</p>
+        </div>
+
+        <div class="service">
+            <img src="tools.gif" alt="Installation and Commissioning">
+            <div class="service-overlay">
+                <p>Installation and Commissioning</p>
+            </div>
+            <h2>Installation and Commissioning</h2>
+            <p>Professional installation by certified technicians ensuring safety and efficiency. Thorough testing and commissioning for performance guarantee.</p>
+        </div>
+
+        <div class="service">
+            <img src="maintain.gif" alt="Maintenance and Monitoring">
+            <div class="service-overlay">
+                <p>Maintenance and Monitoring</p>
+            </div>
+            <h2>Maintenance and Monitoring</h2>
+            <p>Regular maintenance checks and remote monitoring for peak system performance and issue detection.</p>
+        </div>
+
+        <div class="service">
+            <img src="finance.gif" alt="Financing Options">
+            <div class="service-overlay">
+                <p>Financing Options</p>
+            </div>
+            <h2>Financing Options</h2>
+            <p>Flexible financing plans and assistance with incentives, rebates, and tax credits to maximize savings.</p>
+        </div>
+
+        <div class="service">
+            <img src="audit.gif" alt="Energy Audits and Efficiency Upgrades">
+            <div class="service-overlay">
+                <p>Energy Audits and Efficiency Upgrades</p>
+            </div>
+            <h2>Energy Audits and Efficiency Upgrades</h2>
+            <p>Comprehensive energy audits to identify savings opportunities. Integration of energy-efficient technologies.</p>
+        </div>
+
+        <div class="service">
+            <img src="training.gif" alt="Training and Support">
+            <div class="service-overlay">
+                <p>Training and Support</p>
+            </div>
+            <h2>Training and Support</h2>
+            <p>Customer education programs and ongoing technical support for system understanding and issue resolution.</p>
+        </div>
+    </div>
+    <script src="service.js"></script>
+</body>
+</html>

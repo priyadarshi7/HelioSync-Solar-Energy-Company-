@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Panel Configurator</title>
+    <style>
+            
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-image: url(solar-energy.gif); 
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            flex-wrap: wrap;
+        }
+
+        .config-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: rgba(255, 255, 255, 0.8); 
+            margin: 20px;
+        }
+
+        .config-box {
+            flex: 1 1 45%;
+        }
+
+        .config-box h2 {
+            margin-bottom: 10px;
+            color: #009688;
+        }
+
+        .config-box label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .config-box select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        .config-box button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .config-box button:hover {
+            background-color: #45a049;
+        }
+
+        .config-box #suggestion {
+            margin-top: 20px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .guide {
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: calc(45% - 40px);
+            margin: 20px;
+        }
+
+        .guide h3 {
+            margin-bottom: 10px;
+            color: #009688;
+        }
+
+        .guide ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .guide li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .panel-gif {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        #logo{
+    background-image: url('Asset 1.png');
+    height: 80px;
+background-size: cover;
+width:80px;
+margin-left:25px;
+}
+#logo:hover{
+    background-color: #444444;
+    border-radius: 8px;
+}
+    </style>
+</head>
+<body>
+    <div id="logo">
+    </div>
+    <div class="config-container">
+        <div class="config-box">
+            <h2>Solar Panel Configurator</h2>
+
+            <label for="electricityBill">Average Monthly Electricity Bill:</label>
+            <select id="electricityBill">
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+            </select>
+
+            <label for="independenceGoals">Energy Independence Goals:</label>
+            <select id="independenceGoals">
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+            </select>
+
+            <label for="budgetRange">Budget Range:</label>
+            <select id="budgetRange">
+                <option value="low">Low</option>
+                <option value="moderate">Moderate</option>
+                <option value="high">High</option>
+            </select>
+
+            <label for="roofOrientation">Roof Orientation and Shading:</label>
+            <select id="roofOrientation">
+                <option value="ideal">Ideal</option>
+                <option value="moderate">Moderate</option>
+                <option value="flexible">Flexible</option>
+            </select>
+
+            <button onclick="suggestSolarPanel()">Get Suggestion</button>
+
+            <div id="suggestion"></div>
+        </div>
+
+        <div class="guide">
+            <h3>Guide: Choose solar panels according to your requirements.</h3>
+            <ul>
+                <li><strong>Budget Range:</strong> Low: $5,000 - $10,000, Moderate: $10,000 - $20,000, High: $20,000 - $30,000+</li>
+                <li><strong>Electricity Bill:</strong> Moderate: $50 - $100 per month, 300 - 600 kWhr per month; High: $100 - $200+ per month, 600 - 1200+ kWhr per month</li>
+                <li><strong>Energy Independence Goals:</strong> Choose 'Moderate' if you aim for gradual reduction, 'High' for a more substantial shift towards energy independence.</li>
+                <li><strong>Roof Orientation and Shading:</strong> 'Ideal' is best for maximum sun exposure, 'Moderate' if your roof has some shading, 'Flexible' if your roof has varying orientations and shading conditions.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function suggestSolarPanel() {
+            const electricityBill = document.getElementById('electricityBill').value;
+            const independenceGoals = document.getElementById('independenceGoals').value;
+            const budgetRange = document.getElementById('budgetRange').value;
+            const roofOrientation = document.getElementById('roofOrientation').value;
+            let suggestion = '';
+
+            if (electricityBill === 'high' && independenceGoals === 'high' && budgetRange === 'high' && roofOrientation === 'ideal') {
+                suggestion = 'Monocrystalline Solar Panels (Traditional)';
+            } else if (electricityBill === 'high' && independenceGoals === 'high' && budgetRange === 'high' && roofOrientation === 'moderate') {
+                suggestion = 'Monocrystalline Solar Panels (Black or All-Black)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'high' && budgetRange === 'high' && roofOrientation === 'flexible') {
+                suggestion = 'Bifacial Solar Panels (Monocrystalline)';
+            }
+            else if (electricityBill === 'moderate' && independenceGoals === 'high' && budgetRange === 'moderate' && roofOrientation === 'moderate') {
+                suggestion = 'HIT Solar Panels (Heterojunction with Intrinsic Thin Layer)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'high' && roofOrientation === 'ideal') {
+                suggestion = 'Half-Cut Cell Solar Panels (Monocrystalline)';
+            } else if (electricityBill === 'high' && independenceGoals === 'high' && budgetRange === 'high' && roofOrientation === 'ideal') {
+                suggestion = 'Shingled Solar Panels (Monocrystalline)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'high' && budgetRange === 'high' && roofOrientation === 'moderate') {
+                suggestion = 'Floating Solar Panels (Designed for Water Installations)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'high' && budgetRange === 'low' && roofOrientation === 'ideal') {
+                suggestion = 'Transparent Solar Panels (Incorporated into Windows or Surfaces)';
+            } else if (electricityBill === 'high' && independenceGoals === 'high' && budgetRange === 'high' && roofOrientation === 'flexible') {
+                suggestion = 'Smart Solar Panels (Integrated Electronics for Monitoring)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'moderate' && roofOrientation === 'ideal') {
+                suggestion = 'Thin-Film Solar Panels (Amorphous Silicon)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'moderate' && roofOrientation === 'flexible') {
+                suggestion = 'Thin-Film Solar Panels (Cadmium Telluride)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'moderate' && roofOrientation === 'moderate') {
+                suggestion = 'Polycrystalline Solar Panels (Traditional)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'ideal') {
+                suggestion = 'Polycrystalline Solar Panels (Multicrystalline)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'high' && budgetRange === 'high' && roofOrientation === 'moderate') {
+                suggestion = 'Bifacial Solar Panels (Polycrystalline)';
+            } else if (electricityBill === 'high' && independenceGoals === 'high' && budgetRange === 'high' && roofOrientation === 'ideal') {
+                suggestion = 'Bifacial Solar Panels (Monocrystalline)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'moderate' && roofOrientation === 'ideal') {
+                suggestion = 'PERC Solar Panels (Passivated Emitter Rear Contact)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'moderate' && roofOrientation === 'flexible') {
+                suggestion = 'IBC Solar Panels (Interdigitated Back Contact)';
+            } else if (electricityBill === 'high' && independenceGoals === 'high' && budgetRange === 'high' && roofOrientation === 'ideal') {
+                suggestion = 'Half-Cut Cell Solar Panels (Polycrystalline)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'high' && roofOrientation === 'moderate') {
+                suggestion = 'Shingled Solar Panels (Polycrystalline)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'high' && budgetRange === 'moderate' && roofOrientation === 'ideal') {
+                suggestion = 'Smart Solar Panels (Integrated Electronics for Monitoring)';
+            } 
+            else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'high' && roofOrientation === 'moderate') {
+                suggestion = 'Shingled Solar Panels (Polycrystalline)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'high' && budgetRange === 'moderate' && roofOrientation === 'flexible') {
+                suggestion = 'IBC Solar Panels (Interdigitated Back Contact)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'ideal') {
+                suggestion = 'Half-Cut Cell Solar Panels (Polycrystalline)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'moderate') {
+                suggestion = 'Smart Solar Panels (Integrated Electronics for Monitoring)';
+            } else if (electricityBill === 'moderate' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'flexible') {
+                suggestion = 'Floating Solar Panels (Designed for Water Installations)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'moderate' && roofOrientation === 'moderate') {
+                suggestion = 'Transparent Solar Panels (Incorporated into Windows or Surfaces)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'moderate' && roofOrientation === 'flexible') {
+                suggestion = 'Bifacial Solar Panels (Polycrystalline)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'ideal') {
+                suggestion = 'Thin-Film Solar Panels (Cadmium Telluride)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'moderate') {
+                suggestion = 'Polycrystalline Solar Panels (Multicrystalline)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'flexible') {
+                suggestion = 'HIT Solar Panels (Heterojunction with Intrinsic Thin Layer)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'high' && roofOrientation === 'ideal') {
+                suggestion = 'Half-Cut Cell Solar Panels (Monocrystalline)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'high' && roofOrientation === 'moderate') {
+                suggestion = 'Shingled Solar Panels (Monocrystalline)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'high' && roofOrientation === 'flexible') {
+                suggestion = 'Floating Solar Panels (Designed for Water Installations)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'ideal') {
+                suggestion = 'Transparent Solar Panels (Incorporated into Windows or Surfaces)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'moderate') {
+                suggestion = 'Smart Solar Panels (Integrated Electronics for Monitoring)';
+            } else if (electricityBill === 'high' && independenceGoals === 'moderate' && budgetRange === 'low' && roofOrientation === 'flexible') {
+                suggestion = 'Thin-Film Solar Panels (Amorphous Silicon)';
+            }else if (electricityBill === 'high' && independenceGoals === 'high' && budgetRange === 'moderate' && roofOrientation === 'ideal') {
+                suggestion = ' Amorphous Silicon Solar Panels';
+            }else{
+                suggestion = ' Choose Some other appropriate range/requirement combination';
+            }
+
+            document.getElementById('suggestion').innerText = `Based on your preferences, we suggest: ${suggestion}`;
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+    var productDiv = document.getElementById("logo");
+    productDiv.addEventListener("click", function() {
+        window.location.href = "index.html";
+    });
+});
+    </script>
+</body>
+</html>

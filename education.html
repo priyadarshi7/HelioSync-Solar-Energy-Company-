@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="education.css">
+</head>
+<body>
+    <div class="header">
+        <div id="logo">
+        </div>
+        <h1>Education and Resources</h1>
+    </div>
+    <div class="boxes">
+        <div class="box1">
+            <div class="gif"></div>
+            <button id="btn">Glossary</button>
+        </div>
+        <div class="box1">
+            <div class="gif2"></div>
+            <button id="btn2">Case Studies</button>
+        </div>
+        <div class="box1">
+            <div class="gif3"></div>
+            <button id="btn3">FAQ</button>
+        </div>
+        <div class="box1">
+            <div class="gif4"></div>
+            <button id="btn4">DIY</button>
+        </div>
+    </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+    var productDiv = document.getElementById("btn");
+    productDiv.addEventListener("click", function() {
+        window.location.href = "glosarry.html";
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    var productDiv = document.getElementById("btn2");
+    productDiv.addEventListener("click", function() {
+        window.location.href = "case.html";
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    var productDiv = document.getElementById("btn3");
+    productDiv.addEventListener("click", function() {
+        window.location.href = "faq.html";
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    var productDiv = document.getElementById("btn4");
+    productDiv.addEventListener("click", function() {
+        window.location.href = "DIY.html";
+    });
+});
+document.addEventListener("DOMContentLoaded", function() {
+    var productDiv = document.getElementById("logo");
+    productDiv.addEventListener("click", function() {
+        window.location.href = "index.html";
+    });
+});
+  </script>
+</body>
+</html>
